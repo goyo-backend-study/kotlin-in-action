@@ -1,5 +1,7 @@
 package goyo.kotlin.Chapter05
 
+import java.util.function.Supplier
+
 /**
  * 람다란 이름없는 함수
  *
@@ -38,6 +40,21 @@ fun main() {
      * NOTE : 람다안에 람다가 중첩되는 경우 it 남용을 주의하자
      */
 
+    val globalCounter = GlobalCounter()
+    println(globalCounter.increment())
+    println(globalCounter.increment())
+    println(globalCounter.increment())
 
+    // 클로저는 변수를 저장
+}
+
+
+
+class GlobalCounter {
+
+    fun increment(): Int {
+        var count: Int = 0 // 전역 변수
+        return ++count
+    }
 }
 
