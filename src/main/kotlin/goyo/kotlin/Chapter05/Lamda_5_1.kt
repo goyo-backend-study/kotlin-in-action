@@ -40,12 +40,33 @@ fun main() {
      * NOTE : 람다안에 람다가 중첩되는 경우 it 남용을 주의하자
      */
 
+    // 클로저는 변수를 저장
     val globalCounter = GlobalCounter()
     println(globalCounter.increment())
     println(globalCounter.increment())
     println(globalCounter.increment())
 
-    // 클로저는 변수를 저장
+    /**
+     * 멤버 참조.
+     * 멤버는 클래스의 함수나 프로퍼티, :: 콜론 연산으로 클래스의 멤버참조
+     */
+    val peoples = listOf(Person("Alice", 29), Person("Bob", 31))
+
+    // 일반 람다 표현식
+    val names1 = people.map { it.name }
+    println(names1) // [Alice, Bob]
+
+    // 멤버 참조 사용
+    val names2 = people.map(Person::name)
+    println(names2) // [Alice, Bob]
+
+    // 일반 람다 사용
+    val sorted1 = people.sortedByDescending { it.age }
+    println(sorted1)
+
+    // 멤버 참조 사용
+    val sorted2 = people.sortedByDescending(Person::age)
+    println(sorted2)
 }
 
 
