@@ -1,1 +1,1 @@
-rootProject.name = "kotlin"
+rootProject.name = "kotlin-in-action"
