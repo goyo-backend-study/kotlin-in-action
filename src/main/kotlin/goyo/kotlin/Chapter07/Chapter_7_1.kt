@@ -75,7 +75,7 @@ fun main() {
     println(++bd) // 11
 
     // 코틀린 표준 라이브러리는 변경 가능한 컬렉션에 대해서 plusAssign() 연산자를 정의하고 있다.
-    val numbers = ArrayList<Int>()
+    var numbers = ArrayList<Int>()
     numbers += 1 // plusAssign() 연산자 오버로딩, add() 메서드 호출
     println(numbers)
 
@@ -90,7 +90,7 @@ fun main() {
      * 컬렉션에 대해서는 plus, plusAssign 두가지 접근방법을 함께제공한다.
      * +와 -는 새로운 컬렉션을 반환하고, +=와 -=는 기존 컬렉션을 변경한다.
      */
-    val list = arrayListOf(1, 2)
+    var list = arrayListOf(1, 2)
     list += 3 // list를 변경, 변경가능한 컬렉션만 사용가능.
     println(list) // [1, 2, 3]
 
