@@ -32,16 +32,37 @@ fun main() {
         val firstName: String,
         val lastName: String,
     ) : Comparable<Person> {
+        /**
+         * compareTo() 메서드는 두 객체를 비교하는 메서드로, 음수, 0, 양수를 반환한다.
+         * 음수: 현재 객체가 비교 대상보다 작음.
+         * 0: 현재 객체와 비교 대상이 같음.
+         * 양수: 현재 객체가 비교 대상보다 큼.
+         */
+//        override fun compareTo(other: Person): Int {
+//            return if (lastName == other.lastName) {
+//                firstName.compareTo(other.firstName)
+//            } else {
+//                lastName.compareTo(other.lastName)
+//            }
+//        }
+
+        /**
+         * 2번째 메서드는 this와 other 객체를 비교
+         * , 비교 순서는 lastName을 먼저 비교하고, lastName이 같으면 firstName을 비교
+         */
         override fun compareTo(other: Person): Int {
-            // compareTo() 메서드는 음수, 0, 양수를 반환한다.
-            // 음수는 this가 other보다 작다는 의미
-            // 0은 this가 other와 같다는 의미
-            // 양수는 this가 other보다 크다는 의미
-            return if (lastName == other.lastName) {
-                firstName.compareTo(other.firstName)
-            } else {
-                lastName.compareTo(other.lastName)
-            }
+            return compareValuesBy(
+                this, other,
+                Person::lastName, Person::firstName
+            )
         }
     }
+
+    val p1 = Person("Alice", "Smith")
+    val p2 = Person("Bob", "Johnson")
+    println(p1 < p2) // false
+
+    /**
+     * Tip: 처음에는 성능에 신경쓰지말고 이해하기 쉽고 간결하게 코드를 작성하고, 나중에 그 코드가 자주 호출됨에 따라 성능이 문제가 되면 성능을 개선하라
+     */
 }
