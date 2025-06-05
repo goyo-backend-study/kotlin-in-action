@@ -80,7 +80,7 @@ fun main() {
     fun <T : Comparable<T>> max(first: T, second: T): T {
         return if (first > second) first else second
     }
-    // println(max("kotlin", 42)) // 오류: String과 Int는 비교할 수 없음
+//     println(max("kotlin", 42)) // 오류: String과 Int는 비교할 수 없음
 
     //널이 될 수 없는 타입으로 타입 파라미터 제한
     //	•	제네릭 타입 T는 아무 제약도 없기 때문에 사실상 T : Any?와 같음.
